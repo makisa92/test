@@ -1,0 +1,161 @@
+@color-base: #000;
+@base-font: 'Open Sans', sans-serif;
+@background: #fff;
+@main-color: #96ca3a;
+@border-radius:10px;
+
+
+body {
+    font-family: @base-font;
+    color:@color-base;
+    background-color: @background;
+}
+
+.main-container {
+    text-align: center;
+
+    #myBtn {
+        background-color: @main-color;
+        color: #fff;
+        width: 200px;
+        height: 40px;
+        border: 0;
+        border-radius: @border-radius;
+        font-size: 21px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5%;
+            padding: 0px;
+            border: 1px solid #888;
+            width: 90%;
+
+            /* Left side of modal */
+            .left-container-side {
+                text-align: left;
+                width: 40%;
+                height: 100%;
+                float: left;
+
+                img {
+                    width:100%;
+                    height: 700px;
+                }
+            }
+
+             /* Right (form) side of modal */
+            .right-container-side {
+                width: 60%;
+                min-height: 700px;
+                float: left;
+                background-color: @background;
+
+                .form-start {
+
+                    width: 70%;
+                    padding: 15%;
+                    text-align: left;
+
+                    form {
+
+                        label {
+                            text-transform: uppercase;
+                            color: #ccc;
+                            font-weight: bold;
+                        }
+
+                        input {
+                            border: none;
+                            border-bottom: 2px solid #ccc;
+                            width: 100%;
+                            margin-bottom: 10px;
+                            height: 30px;
+                            font-size: 18px;
+
+                            &:focus {
+                                outline:none;
+                            }
+                        }
+
+                        .pick {
+
+                            ul {
+                                list-style-type: none;
+                                display: flex;
+
+                                li {
+                                    width: 80px;
+                                    height: 30px;
+                                    border-radius: @border-radius;
+                                    background-color: #ccc;
+                                    margin: 0 auto;
+
+                                    &:hover {
+                                        background-color: @main-color;
+                                        cursor: pointer;
+                                    }
+
+                                    &:first-child {
+                                        background-color: @main-color;
+                                    }
+                                }
+                            }
+                        }
+
+                        button {
+                                width: 100px;
+                                height: 40px;
+                                border: 0;
+                                background-color: @main-color;
+                                border-radius: @border-radius;
+                                float: right;
+                                margin-top: 30px;
+                                color: @background;
+                                font-size: 21px;
+                                font-weight: bold;
+                                cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+/* The Close Button */
+/*.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}*/
+
+/*.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}*/
+
+/*.center-btn {
+    text-align: center;
+}*/
+

@@ -14,7 +14,7 @@
 <meta name="description" content="">
 
 <!-- Custom Styles -->
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -37,13 +37,43 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close"></span>
-    
+    <!-- <span class="close"></span> -->
     <div class="left-container-side">
         <img src="images/leftModalSide.png">
-    </div>
+  </div>
+
     <div class="right-container-side">
-      
+        <div id="step1" class="form-start">
+            <form>
+              <label>First name</label>
+              <input type="text" name="firstname" value="pera">
+             
+              <label>Last name</label>
+              <input type="text" name="lastname" value="perovic">
+
+              <label>Title</label>
+              <input type="text" name="" value="front end developer">
+
+              <label>Email</label>
+              <input type="text" name="" value="pera.perovic@gmail.com">
+
+              <label>Pick your skills level</label>
+              <div class="pick">
+                <ul>
+                  <li id="Junior"></li>
+                  <li id="Advanced"></li>
+                  <li id="Senior"></li>
+                </ul>
+              </div>
+              <input type="text" name="" value="Junior">
+             
+              <button id="nextStep2">NEXT</button>
+            </form>
+        </div>
+
+        <div id="step2" style="display: none">
+          korak 2
+        </div>
     </div>
   </div>
 
