@@ -25,64 +25,78 @@
 <body>
 
 <div class="main-container">
-<h2 class="center-btn">Advanced test for Front end developers</h2>
+  <h2 class="center-btn">Advanced test for Front end developers</h2>
 
-<div class="center-btn">
-  <!-- Trigger/Open The Modal -->
-  <button id="myBtn">START TEST</button>
-</div>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <!-- <span class="close"></span> -->
-    <div class="left-container-side">
-        <img src="images/leftModalSide.png">
+  <div class="center-btn">
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">START TEST</button>
   </div>
 
-    <div class="right-container-side">
-        <div id="step1" class="form-start">
-            <form>
-              <label>First name</label>
-              <input type="text" name="firstname" value="pera">
-             
-              <label>Last name</label>
-              <input type="text" name="lastname" value="perovic">
-
-              <label>Title</label>
-              <input type="text" name="" value="front end developer">
-
-              <label>Email</label>
-              <input type="text" name="" value="pera.perovic@gmail.com">
-
-              <label>Pick your skills level</label>
-              <div class="pick">
-                <ul>
-                  <li id="Junior"></li>
-                  <li id="Advanced"></li>
-                  <li id="Senior"></li>
-                </ul>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+  
+    <!-- Modal content -->
+    <div class="modal-content">
+       <span class="close">x</span>
+      <div class="left-container-side">
+          <img src="images/leftModalSide.png">
+      </div>
+  
+      <div class="right-container-side">
+          <div id="step1" class="form-start" style="display: none;">
+              <form>
+                <label>First name</label>
+                <input type="text" name="firstname" value="pera">
+               
+                <label>Last name</label>
+                <input type="text" name="lastname" value="perovic">
+    
+                <label>Title</label>
+                <input type="text" name="" value="front end developer">
+    
+                <label>Email</label>
+                <input type="text" id="email" name="" value="">
+                <p id='result'></p>
+    
+                <label>Pick your skills level</label>
+                <div class="pick">
+                  <ul>
+                    <li id="Junior"></li>
+                    <li id="Advanced"></li>
+                    <li id="Senior"></li>
+                  </ul>
+                </div>
+                <input type="text" name="" value="Junior">
+               
+                <button id="validate" type="submit">Next</button>
+              </form>
+          </div>
+    
+          <div id="step2" style="display: block">
+              <div>
+                <p>Modul 1 <span>1/3 HTML5</span></p>
               </div>
-              <input type="text" name="" value="Junior">
-             
-              <button id="nextStep2">NEXT</button>
-            </form>
-        </div>
-
-        <div id="step2" style="display: none">
-          korak 2
-        </div>
+              <div>
+                <h2>Question</h2>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                  eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                  voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                  clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                  amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                  nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                  sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum
+                  . Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+                  sit amet.</p>
+              </div>
+              <div></div>
+          </div>
+      </div>
     </div>
   </div>
-
-</div>
-
 </div>
 
 <!-- Scripts -->
-<!-- <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script> -->
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
 </body>
