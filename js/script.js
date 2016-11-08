@@ -1,22 +1,33 @@
 $( document ).ready(function() {
 
+    $.ajax({
+        dataType: "json",
+        crossOrigin: true,
+        url: 'http://survey.quantox.tech/survey',
+        // headers: {'Access-Control-Allow-Origin': '*', 'api-key':'4fd9b42566b547562be9f75784ad58f868e90d49'},
+        beforeSend: function(xhr){xhr.setRequestHeader('api-key', '08f1a4ed10cfe271fcbc477542c314eb6e58d51a');},
+         success: function (data) {
+
+                    // for each user
+                    for (var i=0; i < data.length; i++) {
+
+                        // add li elements with class listBlockUsers in ul with id listOfUsers
+                        $("#firstQuestion").append( $("<div>" +
+                            "<h4 class='id'>" + data[i].id + "</h4>" +
+                            "<p class='question'>" + data[i].question + "</p>" +
+                            "<p class='category'>" + data[i].category + "</p>" +
+                            "</div>"));
+                    };
+                },
+    });
+
     // $.ajax({
-    //     dataType: "json",
+    //     type: 'GET',
+    //     url: 'http://www.survey.quantox.tech/survey',
+    //     headers: {'Access-Control-Allow-Origin': '*', 'api-key':'08f1a4ed10cfe271fcbc477542c314eb6e58d51a'},
     //     crossOrigin: true,
-    //     url: 'http://survey.quantox.tech/survey',
-    //     // headers: {'Access-Control-Allow-Origin': '*', 'api-key':'4fd9b42566b547562be9f75784ad58f868e90d49'},
-    //     beforeSend: function(xhr){xhr.setRequestHeader('api-key', '4fd9b42566b547562be9f75784ad58f868e90d49');},
-    //     success: function (data) {
-    //         console.log(data);
-    //     }
     // });
 
-    $.ajax({
-        type: 'GET',
-        url: 'http://www.survey.quantox.tech/survey',
-        headers: {'Access-Control-Allow-Origin': '*', 'api-key':'4fd9b42566b547562be9f75784ad58f868e90d49'},
-        crossOrigin: true,
-    });
 
     // Get the modal
     var modal = document.getElementById('myModal');
