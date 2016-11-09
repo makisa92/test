@@ -9,16 +9,16 @@ $( document ).ready(function() {
          success: function (data) {
 
                     // for each user
-                    for (var i=0; i < data.length; i++) {
+                    // for (var i=0; i < data.length; i++) {
 
                         // add li elements with class listBlockUsers in ul with id listOfUsers
                         $("#firstQuestion").append( $("<div>" +
-                            "<h4 class='id'>" + data[i].id + "</h4>" +
-                            "<p class='question'>" + data[i].question + "</p>" +
-                            "<p class='category'>" + data[i].category + "</p>" +
+                            "<h4 class='id'>" + data[0].id + "</h4>" +
+                            "<p class='question'>" + data[0].question + "</p>" +
+                            "<p class='category'>" + data[0].category + "</p>" +
                             "</div>"));
-                    };
-                },
+                    },
+                // },
     });
 
     // $.ajax({
@@ -58,17 +58,22 @@ $( document ).ready(function() {
         $("#result").text("");
         var email = $("#email").val();
         if (validateEmail(email)) {
-            $("#result").text(email + " is valid :)");
-            $("#result").css("color", "green");
+        
+            $("#validate").click(function(event) {
+                $('#step2').css("display", "block");
+                $('#step1').css("display", "none");
+            });
+
         } else {
+
             $("#result").text(email + " is not valid :(");
             $("#result").css("color", "red");
+
         }
         return false;
     }
 
     $("form").bind("submit", validate);
-
 
 });
 // When the user clicks anywhere outside of the modal, close it
@@ -78,11 +83,4 @@ $( document ).ready(function() {
 //     }
 // }
 
-// var step1 = document.getElementById("step1");
-// var nextStep2 = document.getElementById("nextStep2");
-
-// nextStep2.onclick = function() {
-// 	step1.display = "none";
-// 	step2.display = "block";
-// }
 
