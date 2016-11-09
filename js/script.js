@@ -9,17 +9,25 @@ $( document ).ready(function() {
          success: function (data) {
 
                     // for each user
-                    // for (var i=0; i < data.length; i++) {
+                    for (var i=0; i < data.length; i++) {
 
                         // add li elements with class listBlockUsers in ul with id listOfUsers
-                        $("#firstQuestion").append( $("<div>" +
-                            "<h4 class='id'>" + data[0].id + "</h4>" +
-                            "<p class='question'>" + data[0].question + "</p>" +
-                            "<p class='category'>" + data[0].category + "</p>" +
-                            "</div>"));
-                    },
-                // },
+                        $(".right-container-side").append("<div class='common' id='step_"+data[i].id+"' style='display:none'>" +
+                            "<h4 class='id'>" + data[i].id + "</h4>" +
+                            "<p class='question'>" + data[i].question + "</p>" +
+                            "<p class='category'>" + data[i].category + "</p>" +
+                            "<button onclick='nextQuestion(step_"+data[i].id+")'>Next</button>"+
+                            "</div>");
+                    };
+                },
     });
+
+    function nextQuestion(divID) {
+        $(divID).css("display","none");
+        $(divID).next().css("display","block");
+    }
+
+
 
     // $.ajax({
     //     type: 'GET',
@@ -60,7 +68,7 @@ $( document ).ready(function() {
         if (validateEmail(email)) {
         
             $("#validate").click(function(event) {
-                $('#step2').css("display", "block");
+                $('.common:first').css("display", "block");
                 $('#step1').css("display", "none");
             });
 
