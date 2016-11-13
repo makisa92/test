@@ -3,6 +3,7 @@
 @background: #fff;
 @main-color: #96ca3a;
 @border-radius:10px;
+@lightgray: #ccc;
 
 
 body {
@@ -14,7 +15,7 @@ body {
 .main-container {
     text-align: center;
 
-    #myBtn {
+    #startBtn {
         background-color: @main-color;
         color: #fff;
         width: 200px;
@@ -49,7 +50,7 @@ body {
                 font-size: 30px;
                 position: absolute;
                 right: 7%;
-                color: #ccc;
+                color: @lightgray;
                 font-weight: bold;
                 cursor: pointer;
             }
@@ -84,13 +85,13 @@ body {
 
                         label {
                             text-transform: uppercase;
-                            color: #ccc;
+                            color: @lightgray;
                             font-weight: bold;
                         }
 
                         input {
                             border: none;
-                            border-bottom: 2px solid #ccc;
+                            border-bottom: 2px solid @lightgray;
                             width: 100%;
                             margin-bottom: 10px;
                             height: 30px;
@@ -111,7 +112,7 @@ body {
                                     width: 80px;
                                     height: 30px;
                                     border-radius: @border-radius;
-                                    background-color: #ccc;
+                                    background-color: @lightgray;
                                     margin: 0 auto;
 
                                     &:hover {
@@ -147,24 +148,80 @@ body {
 
 }
 
+.common {
+    .header {
+        border-bottom: 1px solid @lightgray;
+        text-transform: uppercase;
+        color: @lightgray;
+        font-weight: bold;
+        padding: 0 15px;
 
+        .modul {
+            display: inline-block;
+            width: 50%;
+            float: left;
+            text-align: left;
+
+            span {
+                color: @main-color;
+            }
+        }
+
+        .category {
+            display: inline-block;
+            width: 50%;
+        }
+    }
+
+    .question {
+        color: #000;
+        font-size: 18px;
+    }
+
+    textarea {
+        resize: none;
+        width: 97%;
+        margin: 0 auto;
+        border-color: @lightgray;
+        min-height: 500px;
+    }
+
+    footer {
+        padding: 0 15px;
+
+        .leftArrow {
+            float: left;
+        }
+
+        .rightArrow {
+            float: right;
+        }
+
+        .finish {
+            float: right;
+            border: none;
+            background-color: @main-color;
+            color: @background;
+            padding: 10px 15px;
+            border-radius: @border-radius;
+            text-transform: uppercase;
+        }
+    }
+}
 
 /* The Close Button */
-/*.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}*/
+// .close {
+//     color: #aaaaaa;
+//     float: right;
+//     font-size: 28px;
+//     font-weight: bold;
+// }
 
-/*.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}*/
+// .close:hover,
+// .close:focus {
+//     color: #000;
+//     text-decoration: none;
+//     cursor: pointer;
+// }
 
-/*.center-btn {
-    text-align: center;
-}*/
 

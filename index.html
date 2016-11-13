@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <!-- Basic -->
-<title>FE Test</title>
+<title>Advanced test for Front End Developers</title>
 <!-- Define Charset -->
 <meta charset="utf-8">
 <!-- Responsive Metatag -->
@@ -16,8 +16,6 @@
 <!-- Custom Styles -->
 <link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -27,11 +25,11 @@
 
   <div class="center-btn">
     <!-- Trigger/Open The Modal -->
-    <button id="myBtn">START TEST</button>
+    <button id="startBtn">START TEST</button>
   </div>
 
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
+  <!-- Start modal test -->
+  <div id="startTest" class="modal">
   
     <!-- Modal content -->
     <div class="modal-content">
@@ -41,11 +39,11 @@
       </div>
   
       <div class="right-container-side">
-           <div id="success">
-            
+          <div id="success" style="display: none;">
+            uspesno
           </div>
-          <div id="error">
-            
+          <div id="error" style="display: none;">
+            neuspesno
           </div>
           <div id="step1" class="form-start" style="display: block;">
               <form>
@@ -59,7 +57,7 @@
                 <input type="text" name="" value="front end developer">
     
                 <label>Email</label>
-                <input type="text" id="email" name="" value="">
+                <input type="email" id="email" name="" value="">
                 <p id='result'></p>
     
                 <label>Pick your skills level</label>
@@ -71,12 +69,9 @@
                   </ul>
                 </div>
                 <input type="text" name="" value="Junior">
-               
                 <button id="validate" type="submit">Next</button>
               </form>
           </div>
-
-         
       </div>
     </div>
   </div>
