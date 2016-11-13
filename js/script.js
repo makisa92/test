@@ -1,31 +1,53 @@
 $( document ).ready(function() {
 
+    nextQuestion = function (divID) {
+        $(divID).css("display","none");
+        $(divID).next().css("display","block");
+    }
+
+     prevQuestion = function (divID) {
+        $(divID).css("display","none");
+        $(divID).prev().css("display","block");
+    }
+
+
     $.ajax({
         dataType: "json",
         crossOrigin: true,
-        url: 'http://survey.quantox.tech/survey',
+        // url: 'http://survey.quantox.tech/survey',
+        url:'https://dentist-reminder.azurewebsites.net/api/Questions',
         // headers: {'Access-Control-Allow-Origin': '*', 'api-key':'4fd9b42566b547562be9f75784ad58f868e90d49'},
-        beforeSend: function(xhr){xhr.setRequestHeader('api-key', '08f1a4ed10cfe271fcbc477542c314eb6e58d51a');},
+        // beforeSend: function(xhr){xhr.setRequestHeader('api-key', '08f1a4ed10cfe271fcbc477542c314eb6e58d51a');},
+        beforeSend: function(xhr){xhr.setRequestHeader('ZUMO-API-VERSION', '2.0.0');},
          success: function (data) {
 
                     // for each user
                     for (var i=0; i < data.length; i++) {
+                        if (i == data.length -1){
+                          $(".right-container-side").append("<div class='common' id='step_"+data[i].id+"' style='display:none'>" +
+                            "<h4 class='id'>" + data[i].id + "</h4>" +
+                            "<p class='question'>" + data[i].question + "</p>" +
+                            "<p class='category'>" + data[i].category + "</p>" +
+                            "<textarea id='answer_"+data[i].id+"' rows='4' cols='50'>gfdgdfgfdg</textarea>"+
+                            "<button onclick='prevQuestion(step_"+data[i].id+")'>Prev</button>"+
+                            "</div>");
+                        }else{
 
-                        // add li elements with class listBlockUsers in ul with id listOfUsers
                         $(".right-container-side").append("<div class='common' id='step_"+data[i].id+"' style='display:none'>" +
                             "<h4 class='id'>" + data[i].id + "</h4>" +
                             "<p class='question'>" + data[i].question + "</p>" +
                             "<p class='category'>" + data[i].category + "</p>" +
+                            "<textarea id='answer_"+data[i].id+"' rows='4' cols='50'>gfdgdfgfdg</textarea>"+
+                            "<button onclick='prevQuestion(step_"+data[i].id+")'>Prev</button>"+
                             "<button onclick='nextQuestion(step_"+data[i].id+")'>Next</button>"+
                             "</div>");
+                        }
+                        
                     };
                 },
     });
 
-    function nextQuestion(divID) {
-        $(divID).css("display","none");
-        $(divID).next().css("display","block");
-    }
+    
 
 
 
