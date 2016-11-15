@@ -95,7 +95,7 @@ body {
                                 width: 100%;
                                 margin-bottom: 10px;
                                 height: 30px;
-                                font-size: 18px;
+                                font-size: 14px;
 
                                 &:focus {
                                     outline:none;
@@ -142,6 +142,38 @@ body {
                             }
                         }
                     }
+
+                    #success {
+                        position: relative;
+                        top: 50%;
+                        transform: translateY(50%);
+                    }
+
+                    #error {
+                        position: relative;
+                        top: 50%;
+                        transform: translateY(50%);
+
+                        h3 {
+                            margin: 0;
+                        }
+
+                        h4 {
+                            margin: 0;
+                        }
+
+                        .resend {
+                            border: 0;
+                            background-color: @main-color;
+                            border-radius: @border-radius;
+                            margin-top: 15px;
+                            color: @background;
+                            font-size: 18px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            padding: 10px 15px;
+                        }
+                    }
                 }
             }
         }
@@ -184,6 +216,7 @@ body {
             margin: 0 auto;
             border-color: @lightgray;
             min-height: 500px;
+            font-size: 14px;
         }
 
         footer {

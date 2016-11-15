@@ -40,12 +40,16 @@ $( document ).ready(function() {
             );
         }
 
+        var sendAnswers = {answers};
+
         // var test = answers;
         // send textareas values to api (if succes show message, if error show message)
         $.ajax({
               type: 'POST',
+              crossOrigin: true,
               url: "http://survey.quantox.tech/answers",
-              data: answers,
+              beforeSend: function(xhr){xhr.setRequestHeader('api-key', '1d8ab00b433b2d3fe15134b3e1cd03da1a8eefa9');},
+              data: sendAnswers,
               dataType: "json",
               success: function() { 
                     $(divID).css("display","none");
