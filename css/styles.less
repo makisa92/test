@@ -107,22 +107,29 @@ body {
                                 ul {
                                     list-style-type: none;
                                     display: flex;
+                                    padding: 0;
 
                                     li {
-                                        width: 80px;
-                                        height: 30px;
                                         border-radius: @border-radius;
                                         background-color: @lightgray;
                                         margin: 0 auto;
+                                        text-align: center;
+                                        vertical-align: middle;
+                                        color: #fff;
+                                        padding: 10px 15px;
 
                                         &:hover {
                                             background-color: @main-color;
                                             cursor: pointer;
                                         }
 
-                                        &:first-child {
+                                        .tab .active {
                                             background-color: @main-color;
                                         }
+
+                                        // &:first-child {
+                                        //     background-color: @main-color;
+                                        // }
                                     }
                                 }
                             }

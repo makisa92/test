@@ -14,6 +14,14 @@ $( document ).ready(function() {
         startModal.style.display = "none";
     }
 
+    // if($('#junior').data('clicked')) {
+    //     //clicked element, do-some-stuff
+    //     $('#jobTittle').val('Junior');
+    // } else {
+    //     //run function2
+
+    // }
+
 
     // validate email using regex
     function validateEmail(email) {
@@ -42,7 +50,37 @@ $( document ).ready(function() {
 
     $("form").bind("submit", validate);
 
+    // function setCookie(cname, cvalue, exdays) {
+    //     var d = new Date();
+    //     d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    //     var expires = "expires="+d.toUTCString();
+    //     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    // }
 
+    // function getCookie(cname) {
+    //     var name = cname + "=";
+    //     var ca = document.cookie.split(';');
+    //     for(var i = 0; i < ca.length; i++) {
+    //         var c = ca[i];
+    //         while (c.charAt(0) == ' ') {
+    //             c = c.substring(1);
+    //         }
+    //         if (c.indexOf(name) == 0) {
+    //             return c.substring(name.length, c.length);
+    //         }
+    //     }
+    //     return "";
+    // }
+
+    changeValue = function(setJob){
+        document.getElementById('jobTittle').value=setJob.innerHTML;
+    }
+
+    $(".tab").click(function () {
+        $(".tab").removeClass("active");
+        // $(".tab").addClass("active"); // instead of this do the below 
+        $(this).addClass("active");   
+    });
 
     // On button click show next question
     nextQuestion = function (divID) {

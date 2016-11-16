@@ -68,18 +68,18 @@
     
                 <label>Email</label>
                 <!-- <input type="email" id="email" name="" value=""> html5 validation-->
-                <input type="text" id="email" name="" value="" placeholder="Enter your email"><!-- custom validat-->
+                <input type="text" id="email" name="" value="" placehol;der="Enter your email"><!-- custom validat-->
                 <p id='result'></p>
     
                 <label>Pick your skills level</label>
                 <div class="pick">
                   <ul>
-                    <li id="Junior"></li>
-                    <li id="Advanced"></li>
-                    <li id="Senior"></li>
+                    <li class="tab" onclick="changeValue(this)">Junior</li>
+                    <li class="tab" onclick="changeValue(this)">Advanced</li>
+                    <li class="tab" onclick="changeValue(this)">Senior</li>
                   </ul>
                 </div>
-                <input type="text" name="" value="">
+                <input id="jobTittle" type="text" name="" value="">
                 <button id="result" onclick="validate()" type="submit">Next</button>
               </form>
           </div>
