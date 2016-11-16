@@ -14,6 +14,36 @@ $( document ).ready(function() {
         startModal.style.display = "none";
     }
 
+
+    // validate email using regex
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+
+    var validate = function (){
+
+        $("#result").text("");
+        var email = $("#email").val();
+
+        if (validateEmail(email)) {
+        
+            $('.common:first').css("display", "block");
+            $('#step1').css("display", "none");
+
+        } else {
+
+            $("#result").text(email + " is not valid :(");
+            $("#result").css("color", "red");
+
+        }
+        return false;
+    }
+
+    $("form").bind("submit", validate);
+
+
+
     // On button click show next question
     nextQuestion = function (divID) {
         $(divID).css("display","none");
@@ -48,17 +78,27 @@ $( document ).ready(function() {
               type: 'POST',
               crossOrigin: true,
               url: "http://survey.quantox.tech/answers",
-              beforeSend: function(xhr){xhr.setRequestHeader('api-key', '1d8ab00b433b2d3fe15134b3e1cd03da1a8eefa9');},
+              beforeSend: function(xhr){
+                    xhr.setRequestHeader('api-key', '1d8ab00b433b2d3fe15134b3e1cd03da1a8eefa9');
+        
+                    // show loading animation before status message
+                    $(divID).css("display","none");
+                    $('#loading').css("display","block");
+              },
               data: sendAnswers,
               dataType: "json",
               success: function() { 
-                    $(divID).css("display","none");
+
+                    // show success message    
+                    $('#loading').css("display","none");
                     $('#success').css("display","block");
 
               },
               error: function(){ 
-                    $(divID).css("display","none");
-                     $('#error').css("display","block");
+
+                    // show error message    
+                    $('#loading').css("display","none");  
+                    $('#error').css("display","block");
         
               }
         });
@@ -69,10 +109,7 @@ $( document ).ready(function() {
     $.ajax({
         dataType: "json",
         crossOrigin: true,
-        // url: 'http://survey.quantox.tech/survey',
         url:'http://survey.quantox.tech/survey',
-        // headers: {'Access-Control-Allow-Origin': '*', 'api-key':'4fd9b42566b547562be9f75784ad58f868e90d49'},
-        // beforeSend: function(xhr){xhr.setRequestHeader('api-key', '08f1a4ed10cfe271fcbc477542c314eb6e58d51a');},
         beforeSend: function(xhr){xhr.setRequestHeader('api-key', '1d8ab00b433b2d3fe15134b3e1cd03da1a8eefa9');},
         success: function (data) {
 
@@ -82,16 +119,16 @@ $( document ).ready(function() {
                 // except last one
                 if (i == data.length -1){
 
-                  $(".right-container-side").append("<div class='common' id='step_"+data[i].id+"' style='display:none'>" +
-                    "<header class='header'><p class='modul'>Modul/" + "<span>" + data[i].id  + "</span>" + "</p>" +
-                    "<p class='category'>" + data[i].category + "</p></header>" +
-                    "<p class='question'>" + data[i].question + "</p>" +
-                    "<textarea placeholder='Enter your answer here...' class='textAreasCommonClass' id='answer_"+data[i].id+"'></textarea>"+
-                    "<footer>"+
-                    "<img src='images/leftArrow.png' class='leftArrow' onclick='prevQuestion(step_"+data[i].id+")'/>"+
-                    "<button class='finish' onclick='submitAnswers(step_"+data[i].id+")'>Finish</button>"+
-                    "</footer>"+
-                    "</div>");
+                    $(".right-container-side").append("<div class='common' id='step_"+data[i].id+"' style='display:none'>" +
+                        "<header class='header'><p class='modul'>Modul/" + "<span>" + data[i].id  + "</span>" + "</p>" +
+                        "<p class='category'>" + data[i].category + "</p></header>" +
+                        "<p class='question'>" + data[i].question + "</p>" +
+                        "<textarea placeholder='Enter your answer here...' class='textAreasCommonClass' id='answer_"+data[i].id+"'></textarea>"+
+                        "<footer>"+
+                        "<img src='images/leftArrow.png' class='leftArrow' onclick='prevQuestion(step_"+data[i].id+")'/>"+
+                        "<button class='finish' onclick='submitAnswers(step_"+data[i].id+")'>Finish</button>"+
+                        "</footer>"+
+                        "</div>");
 
                 }else{
 
@@ -111,35 +148,7 @@ $( document ).ready(function() {
         },
     });
 
-   
-    // validate email using regex
-    function validateEmail(email) {
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
 
-    function validate() {
-
-        $("#result").text("");
-        var email = $("#email").val();
-
-        if (validateEmail(email)) {
-        
-            $("#validate").click(function(event) {
-                $('.common:first').css("display", "block");
-                $('#step1').css("display", "none");
-            });
-
-        } else {
-
-            $("#result").text(email + " is not valid :(");
-            $("#result").css("color", "red");
-
-        }
-        return false;
-    }
-
-    $("form").bind("submit", validate);
 
 });
 
