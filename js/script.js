@@ -8,6 +8,8 @@ $( document ).ready(function() {
 
     startBtn.onclick = function() {
         startModal.style.display = "block";
+        // read-write rememberd cookie
+        readWriteCookie();
     }
 
     close.onclick = function() {
@@ -42,38 +44,47 @@ $( document ).ready(function() {
 
     $("form").bind("submit", validate);
 
-    // function setCookie(cname, cvalue, exdays) {
-    //     var d = new Date();
-    //     d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    //     var expires = "expires="+d.toUTCString();
-    //     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    // }
 
-    // function getCookie(cname) {
-    //     var name = cname + "=";
-    //     var ca = document.cookie.split(';');
-    //     for(var i = 0; i < ca.length; i++) {
-    //         var c = ca[i];
-    //         while (c.charAt(0) == ' ') {
-    //             c = c.substring(1);
-    //         }
-    //         if (c.indexOf(name) == 0) {
-    //             return c.substring(name.length, c.length);
-    //         }
-    //     }
-    //     return "";
-    // }
+    // Set cookie
+    setCookie = function(cname,cvalue,exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
 
+    // Get cookie
+    getCookie = function(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // Read cookie value in textareas
+    function readWriteCookie() {
+         var textAreas = $('.textAreasCommonClass');
+
+        for (var i=0; i < textAreas.length; i++) {
+            textAreas[i].value = getCookie(textAreas[i].id);
+        }
+    }
+  
+
+    // Set input value based on clicked job tittle
     changeValue = function(setJob){
         document.getElementById('jobTittle').value=setJob.innerHTML;
     }
 
-    // $(".tab").click(function () {
-    //     $(".tab").removeClass("active");
-    //     // $(".tab").addClass("active"); // instead of this do the below 
-    //     $(this).addClass("active");   
-    // });
-
+    // Add active class
     $('.pick ul li').click(function() {
         $('ul li.active').removeClass('active');
         $(this).closest('li').addClass('active');
@@ -159,7 +170,7 @@ $( document ).ready(function() {
                         "<header class='header'><p class='modul'>Modul/" + "<span>" + data[i].id  + "</span>" + "</p>" +
                         "<p class='category'>" + data[i].category + "</p></header>" +
                         "<p class='question'>" + data[i].question + "</p>" +
-                        "<textarea placeholder='Enter your answer here...' class='textAreasCommonClass' id='answer_"+data[i].id+"'></textarea>"+
+                        "<textarea id='answer_"+data[i].id+"' placeholder='Enter your answer here...' onkeyup='setCookie(this.id,this.value,30)' class='textAreasCommonClass'></textarea>"+
                         "<footer>"+
                         "<img src='images/leftArrow.png' class='leftArrow' onclick='prevQuestion(step_"+data[i].id+")'/>"+
                         "<button class='finish' onclick='submitAnswers(step_"+data[i].id+")'>Finish</button>"+
@@ -172,7 +183,7 @@ $( document ).ready(function() {
                         "<header class='header'><p class='modul'>Modul/" + "<span>" + data[i].id  + "</span>"  + "</p>" +
                         "<p class='category'>" + data[i].category + "</p></header>" +
                         "<p class='question'>" + data[i].question + "</p>" +
-                        "<textarea placeholder='Enter your answer here...' class='textAreasCommonClass' id='answer_"+data[i].id+"'></textarea>"+
+                        "<textarea id='answer_"+data[i].id+"' placeholder='Enter your answer here...' onkeyup='setCookie(this.id,this.value,30)' class='textAreasCommonClass'></textarea>"+
                         "<footer>"+
                         "<img src='images/leftArrow.png' class='leftArrow' onclick='prevQuestion(step_"+data[i].id+")'/>"+
                         "<img src='images/rightArrow.png' class='rightArrow' onclick='nextQuestion(step_"+data[i].id+")'/>"+
@@ -184,16 +195,7 @@ $( document ).ready(function() {
         },
     });
 
-
-
 });
 
-
-// When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// }
 
 
