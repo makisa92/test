@@ -1,3 +1,4 @@
+/* Define common variables */
 @color-base: #000;
 @base-font: 'Open Sans', sans-serif;
 @background: #fff;
@@ -10,7 +11,6 @@ body {
     font-family: @base-font;
     color:@color-base;
     background-color: @background;
-
 
     .main-container {
         text-align: center;
@@ -68,7 +68,7 @@ body {
                     }
                 }
 
-                 /* Right (form) side of modal */
+                /* Right (form) side of modal */
                 .right-container-side {
                     width: 60%;
                     min-height: 700px;
@@ -78,7 +78,7 @@ body {
                     .form-start {
 
                         width: 70%;
-                        padding: 15%;
+                        padding: 10% 15%;
                         text-align: left;
 
                         form {
@@ -102,6 +102,11 @@ body {
                                 }
                             }
 
+                            #result {
+                                margin-top: 0;
+                                font-weight: bold;
+                            }
+
                             .pick {
 
                                 ul {
@@ -122,14 +127,7 @@ body {
                                             background-color: @main-color;
                                             cursor: pointer;
                                         }
-
-                                        .tab .active {
-                                            background-color: @main-color;
-                                        }
-
-                                        // &:first-child {
-                                        //     background-color: @main-color;
-                                        // }
+  
                                     }
                                 }
                             }
@@ -249,19 +247,11 @@ body {
         }
     }
 
-    /* The Close Button */
-    // .close {
-    //     color: #aaaaaa;
-    //     float: right;
-    //     font-size: 28px;
-    //     font-weight: bold;
-    // }
+    /* Class active for job tittle */
+    .active {
+        background-color: @main-color !important;
+    }
 
-    // .close:hover,
-    // .close:focus {
-    //     color: #000;
-    //     text-decoration: none;
-    //     cursor: pointer;
-    // }
 }
+
 

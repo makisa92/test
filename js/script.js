@@ -14,14 +14,6 @@ $( document ).ready(function() {
         startModal.style.display = "none";
     }
 
-    // if($('#junior').data('clicked')) {
-    //     //clicked element, do-some-stuff
-    //     $('#jobTittle').val('Junior');
-    // } else {
-    //     //run function2
-
-    // }
-
 
     // validate email using regex
     function validateEmail(email) {
@@ -29,7 +21,7 @@ $( document ).ready(function() {
         return re.test(email);
     }
 
-    var validate = function (){
+    validate = function (){
 
         $("#result").text("");
         var email = $("#email").val();
@@ -76,11 +68,17 @@ $( document ).ready(function() {
         document.getElementById('jobTittle').value=setJob.innerHTML;
     }
 
-    $(".tab").click(function () {
-        $(".tab").removeClass("active");
-        // $(".tab").addClass("active"); // instead of this do the below 
-        $(this).addClass("active");   
+    // $(".tab").click(function () {
+    //     $(".tab").removeClass("active");
+    //     // $(".tab").addClass("active"); // instead of this do the below 
+    //     $(this).addClass("active");   
+    // });
+
+    $('.pick ul li').click(function() {
+        $('ul li.active').removeClass('active');
+        $(this).closest('li').addClass('active');
     });
+
 
     // On button click show next question
     nextQuestion = function (divID) {

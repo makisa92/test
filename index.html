@@ -9,22 +9,21 @@
 <meta charset="utf-8">
 <!-- Responsive Metatag -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
 <!-- Page Description and Author -->
 <meta name="description" content="">
 
-<!-- Custom Styles -->
-<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<!-- Custom Style -->
+<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
 </head>
 
 <body>
 
 <div class="main-container">
-  <h2 class="center-btn">Advanced test for Front end developers</h2>
+  <h1 class="center-btn">Advanced test for Front end developers</h2>
 
   <div class="center-btn">
-    <!-- Trigger/Open The Modal -->
     <button id="startBtn">START TEST</button>
   </div>
 
@@ -33,29 +32,35 @@
   
     <!-- Modal content -->
     <div class="modal-content">
-       <span class="close">x</span>
+      <!-- Close modal-->
+      <span class="close">x</span>
       <div class="left-container-side">
           <img src="images/leftModalSide.png">
       </div>
   
       <div class="right-container-side">
+          <!-- Succes message-->
           <div id="success" style="display: none;">
             <h1>CONGRATULATIONS</h1>
             <h3>THANK YOU FOR YOUR TIME</h3>
             <img src="images/success.png" alt="">
           </div>
+          <!-- Error message-->
           <div id="error" style="display: none;">
             <img src="images/error.png" alt="">
             <h4>SERVER RETURNED AN ERROR</h1>
             <h3>DATA WAS NOT SAVED</h3>
             <button class='resend' onclick=''>RESEND</button>
           </div>
+          <!-- Wait.. message-->
           <div id="loading" style="display: none;">
             <h4>Sending data</h1>
             <h3>Please wait</h3>
             <img src="images/loading.gif" alt="">
           </div>
+
           <div id="step1" class="form-start" style="display: block;">
+
               <form>
                 <label>First name</label>
                 <input type="text" name="firstname" value="" placeholder="Enter your first name">
@@ -74,14 +79,16 @@
                 <label>Pick your skills level</label>
                 <div class="pick">
                   <ul>
-                    <li class="tab" onclick="changeValue(this)">Junior</li>
-                    <li class="tab" onclick="changeValue(this)">Advanced</li>
-                    <li class="tab" onclick="changeValue(this)">Senior</li>
+                    <li class="active" onclick="changeValue(this)">Junior</li>
+                    <li class="" onclick="changeValue(this)">Advanced</li>
+                    <li class="" onclick="changeValue(this)">Senior</li>
                   </ul>
                 </div>
                 <input id="jobTittle" type="text" name="" value="">
+                
                 <button id="result" onclick="validate()" type="submit">Next</button>
               </form>
+
           </div>
       </div>
     </div>
